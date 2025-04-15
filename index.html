@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Escola Fácil - Governo do Brasil</title>
+    <style>
+        :root {
+            --azul-escuro: #071D41;
+            --azul-medio: #1351B4;
+            --azul-claro: #2670E8;
+            --verde: #009C3B;
+            --amarelo: #FFDF00;
+            --cinza-claro: #F8F8F8;
+            --cinza-medio: #DFDFDF;
+            --branco: #FFFFFF;
+            --preto: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Rawline', 'Raleway', sans-serif;
+        }
+        
+        body {
+            background-color: var(--cinza-claro);
+            color: var(--preto);
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Estilo para barra gov.br */
+        .gov-bar {
+            background-color: var(--azul-escuro);
+            color: white;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+        
+        .gov-bar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gov-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1rem;
+            font-size: 0.8rem;
+        }
+        
+        /* Cabeçalho principal */
+        header {
+            background-color: var(--branco);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        
+        .header-main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .header-logo img {
+            margin-right: 1rem;
+            max-width: 60px;
+            height: auto;
+        }
+        
+        .brand-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--azul-escuro);
+        }
+        
+        .brand-subtitle {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .official-tag {
+            background-color: var(--amarelo);
+            color: var(--azul-escuro);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 1rem;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        
+        /* Menu de navegação */
+        nav {
+            background-color: var(--azul-medio);
+            width: 100%;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 1rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            padding: 1rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+        }
+        
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Conteúdo principal */
+        main {
+            max-width: 1200px;
+            margin: 1rem auto;
+            padding: 0 1rem;
+            width: 100%;
+        }
+        
+        /* Seção de busca */
+        .search-section {
+            background-color: var(--branco);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+        }
+        
+        .search-input {
+            width: 70%;
+            padding: 0.8rem;
+            border: 1px solid var(--cinza-medio);
+            border-radius: 4px;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .search-button {
+            background-color: var(--azul-medio);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .search-button:hover {
+            background-color: var(--azul-escuro);
+        }
+
+        .search-terms {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #666;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* Seção de destaque */
+        .hero {
+            background-color: var(--branco);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+        
+        .hero-content {
+            padding: 1.5rem;
+        }
+        
+        .hero h1 {
+            color: var(--azul-escuro);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .official-badge {
+            display: inline-block;
+            background-color: #f1f1f1;
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            font-size: 0.9rem;
+        }
+        
+        .official-badge span {
+            font-weight: bold;
+            color: var(--azul-medio);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--verde);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
+        }
+        
+        /* Cards de serviços */
+        .section-title {
+            color: var(--azul-escuro);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--cinza-medio);
+            padding-bottom: 0.5rem;
+            width: 100%;
+        }
+        
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+        
+        .service-card {
+            background-color: var(--branco);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            padding: 1.5rem;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-content h3 {
+            color: var(--azul-medio);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Etapas do processo */
+        .steps {
+            background-color: var(--branco);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        
+        .step-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 280px;
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .step-number {
+            background-color: var(--amarelo);
+            color: var(--azul-escuro);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        /* Contato e canais */
+        .contact {
+            background-color: var(--branco);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        .contact-method {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .contact-method h3 {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            color: var(--azul-medio);
+        }
+        
+        /* Categorias */
+        .categories {
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+        
+        .category-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .category-item {
+            background-color: var(--branco);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            text-decoration: none;
+            color: var(--preto);
+        }
+        
+        .category-item:hover {
+            transform: translateY(-5px);
+            background-color: var(--azul-claro);
+            color: var(--branco);
+        }
+        
+        .category-icon {
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: var(--azul-medio);
+        }
+        
+        .category-item:hover .category-icon {
+            color: var(--branco);
+        }
+        
+        /* Estatísticas */
+        .stats-section {
+            background-color: var(--azul-medio);
+            color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .stat-item {
+            padding: 1rem;
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: bold;
+        }
+        
+        /* Botão de WhatsApp Fixo */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        /* Rodapé */
+        footer {
+            background-color: var(--azul-escuro);
+            color: white;
+            padding: 2rem 0;
+            width: 100%;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .footer-top {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1.5rem;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-column h3 {
+            color: var(--amarelo);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .footer-middle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        .creative-commons {
+            margin-top: 1rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .brand-title {
+                font-size: 1.5rem;
+            }
+            
+            .search-input {
+                width: 80%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-main {
+                flex-direction: column;
+                text-align: center;
+                padding: 0.8rem;
+            }
+            
+            .header-logo {
+                margin-bottom: 0.8rem;
+                justify-content: center;
+            }
+            
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                display: none;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                text-align: center;
+                width: 100%;
+                padding: 0.8rem;
+            }
+            
+            .search-input {
+                width: 100%;
+                margin-bottom: 0.8rem;
+            }
+            
+            .gov-bar-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .gov-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            
+            .gov-links a {
+                margin: 0 0.3rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .official-badge {
+                font-size: 0.8rem;
+                padding: 0.4rem;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+            
+            .footer-middle {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .services {
+                grid-template-columns: 1fr;
+            }
+            
+            .step {
+                min-width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .brand-title {
+                font-size: 1.2rem;
+            }
+            
+            .official-tag {
+                font-size: 0.7rem;
+                margin-left: 0.5rem;
+            }
+            
+            .brand-subtitle {
+                font-size: 0.8rem;
+            }
+            
+            .header-logo img {
+                max-width: 50px;
+            }
+            
+            .hero-content, .service-card, .steps, .contact {
+                padding: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.3rem;
+            }
+            
+            .btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+            
+            .stat-number {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão fixo do WhatsApp -->
+    <a href="https://wa.me/5511999999999" class="whatsapp-float" aria-label="Contato por WhatsApp">
+        💬
+    </a>
+
+    <!-- Barra Superior Gov.br -->
+    <div class="gov-bar">
+        <div class="gov-bar-container">
+            <div>Portal Oficial do Governo Federal do Brasil</div>
+            <div class="gov-links">
+                <a href="https://wa.me/5511999999999">Acessibilidade</a>
+                <a href="https://wa.me/5511999999999">Transparência</a>
+                <a href="https://wa.me/5511999999999">Gov.br</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cabeçalho Principal -->
+    <header>
+        <div class="header-main">
+            <div class="header-logo">
+                <img src="logo.png" alt="Brasão da República">
+                <div>
+                    <div class="brand-title">Auto Escola Fácil <span class="official-tag">GOV.BR</span></div>
+                    <div class="brand-subtitle">Programa Oficial do Governo Federal</div>
+                </div>
+            </div>
+            <div></div>
+        </div>
+    </header>
+    
+    <!-- Navegação Principal -->
+    <nav>
+        <div class="nav-container">
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul id="mainMenu">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#processo">Processo</a></li>
+                <li><a href="#categorias">Categorias</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="#sobre">Sobre o Programa</a></li>
+                <li><a href="https://wa.me/5511999999999">Atendimento</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Conteúdo Principal -->
+    <main>
+        <!-- Seção de Busca -->
+        <section class="search-section">
+            <input type="text" class="search-input" placeholder="O que você procura?">
+            <button class="search-button" onclick="window.location.href='https://wa.me/5511999999999'">Buscar</button>
+            <div class="search-terms">
+                <span><a href="https://wa.me/5511999999999">CNH Digital</a></span>
+                <span><a href="https://wa.me/5511999999999">Primeira Habilitação</a></span>
+                <span><a href="https://wa.me/5511999999999">Renovação</a></span>
+                <span><a href="https://wa.me/5511999999999">Pontuação</a></span>
+            </div>
+        </section>
+        
+        <!-- Seção de Destaque -->
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <div class="official-badge">
+                    <span>Ministério da Infraestrutura</span> | DENATRAN - Departamento Nacional de Trânsito
+                </div>
+                <h1>Programa Nacional de Habilitação Facilitada</h1>
+                <p>O <strong>Auto Escola Fácil</strong> é um programa oficial do <strong>Governo do Brasil</strong> que visa facilitar o acesso à Carteira Nacional de Habilitação para todos os cidadãos brasileiros. Desenvolvido pelo Departamento Nacional de Trânsito (DENATRAN) em parceria com o Ministério da Infraestrutura, o programa oferece um processo simplificado e acessível para a obtenção da CNH.</p>
+                <a href="https://wa.me/5511999999999" class="btn">Conheça nossos serviços</a>
+            </div>
+        </section>
+        
+        <!-- Serviços em Destaque -->
+        <section id="servicos">
+            <h2 class="section-title">Serviços para você</h2>
+            <div class="services">
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>Primeira Habilitação</h3>
+                        <p>Programa governamental para cidadãos que desejam obter a primeira CNH. Inclui subsídios e facilidades implementadas pelo Governo Federal.</p>
+                        <a href="https://wa.me/5511999999999" class="btn" style="font-size: 0.9rem;">Solicitar serviço</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>Renovação de CNH</h3>
+                        <p>Processo digital simplificado do Governo Federal para renovação da Carteira Nacional de Habilitação, integrado com a plataforma Gov.br.</p>
+                        <a href="https://wa.me/5511999999999" class="btn" style="font-size: 0.9rem;">Solicitar serviço</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>CNH Social</h3>
+                        <p>Programa governamental que oferece gratuidade no processo de habilitação para cidadãos de baixa renda, conforme critérios estabelecidos pelo Governo Federal.</p>
+                        <a href="https://wa.me/5511999999999" class="btn" style="font-size: 0.9rem;">Verificar elegibilidade</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Etapas do Processo -->
+        <section class="steps" id="processo">
+            <h2 class="section-title">Processo Oficial DENATRAN</h2>
+            <div class="step-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h3>Inscrição no Portal Gov.br</h3>
+                        <p>Cadastro no sistema único do Governo Federal e verificação dos requisitos para participação no programa.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h3>Exames Médicos Oficiais</h3>
+                        <p>Realização de exames médicos em clínicas credenciadas pelo DETRAN em sua região.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h3>Aulas Teóricas Padronizadas</h3>
+                        <p>45 horas de aulas teóricas no formato oficial estabelecido pelo DENATRAN e Ministério da Infraestrutura.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div>
+                        <h3>Exame Teórico DETRAN</h3>
+                        <p>Avaliação teórica realizada nos centros oficiais do Departamento Estadual de Trânsito.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div>
+                        <h3>Aulas Práticas Supervisionadas</h3>
+                        <p>20 horas de aulas práticas com instrutores certificados pelo Governo Federal.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <div>
+                        <h3>Exame Prático Oficial</h3>
+                        <p>Avaliação final conduzida por examinadores oficiais do DETRAN.</p>
+                    </div>
+                </div>
+            </div>
+            <a href="https://wa.me/5511999999999" class="btn">Informações sobre o processo</a>
+        </section>
+        
+        <!-- Categorias -->
+        <section class="categories" id="categorias">
+            <h2 class="section-title">Navegue por categoria</h2>
+            <div class="category-list">
+                <a href="https://wa.me/5511999999999" class="category-item">
+                    <div class="category-icon">🚗</div>
+                    <div>
+                        <strong>Categoria B</strong>
+                        <div>Carros e veículos leves</div>
+                    </div>
+                </a>
+                <a href="https://wa.me/5511999999999" class="category-item">
+                    <div class="category-icon">🏍️</div>
+                    <div>
+                        <strong>Categoria A</strong>
+                        <div>Motos e ciclomotores</div>
+                    </div>
+                </a>
+                <a href="https://wa.me/5511999999999" class="category-item">
+                    <div class="category-icon">🚚</div>
+                    <div>
+                        <strong>Categoria C</strong>
+                        <div>Veículos de carga</div>
+                    </div>
+                </a>
+                <a href="https://wa.me/5511999999999" class="category-item">
+                    <div class="category-icon">🚌</div>
+                    <div>
+                        <strong>Categoria D</strong>
+                        <div>Ônibus e micro-ônibus</div>
+                    </div>
+                </a>
+                <a href="https://wa.me/5511999999999" class="category-item">
+                    <div class="category-icon">📋</div>
+                    <div>
+                        <strong>Documentação</strong>
+                        <div>Formulários e processos</div>
+                    </div>
+                </a>
+                <a href="https://wa.me/5511999999999" class="category-item">
+                    <div class="category-icon">📱</div>
+                    <div>
+                        <strong>Serviços Digitais</strong>
+                        <div>App CNH Digital</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+        
+        <!-- Canais de Atendimento -->
+        <section class="contact" id="contato">
+            <h2 class="section-title">Canais Oficiais de Atendimento</h2>
+            <div class="contact-info">
+                <div class="contact-method">
+                    <h3>📞 Central de Atendimento</h3>
+                    <p>0800 123 4567 (ligação gratuita)</p>
+                    <p>Atendimento: 08h às 20h</p>
+                    <a href="https://wa.me/5511999999999" class="btn" style="font-size: 0.9rem;">Ligar agora</a>
+                </div>
+                
+                <div class="contact-method">
+                    <h3>✉️ Email Oficial</h3>
+                    <p>contato@autoescolafacil.gov.br</p>
+                    <p>ouvidoria@autoescolafacil.gov.br</p>
+                    <a href="https://wa.me/5511999999999" class="btn" style="font-size: 0.9rem;">Contato via WhatsApp</a>
+                </div>
+                
+                <div class="contact-method">
+                    <h3>📍 Unidades de Atendimento</h3>
+                    <p>Consulte as unidades DETRAN no seu estado</p>
+                    <p>Todas as capitais e principais cidades</p>
+                    <a href="https://wa.me/5511999999999" class="btn" style="font-size: 0.9rem;">Encontrar unidade</a>
+                </div>
+                
+                <div class="contact-method">
+                    <h3>🌐 Portal de Serviços</h3>
+                    <p>www.gov.br/autoescolafacil</p>
+                    <p>Acessível pela sua conta Gov.br</p>
+                    <a href="https://wa.me/5511999999999" class="btn" style="font-size: 0.9rem;">Acessar serviços</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Estatísticas -->
+        <section class="stats-section">
+            <h2 style="margin-bottom: 1.5rem;">Desempenho dos Serviços</h2>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div>Serviços Digitais</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3.2M</div>
+                    <div>CNHs emitidas em 2024</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">7.5M</div>
+                    <div>Cidadãos atendidos</div>
+                </div>
+            </div>
+            <a href="https://wa.me/5511999999999" class="btn" style="background-color: white; color: var(--azul-medio); margin-top: 1rem;">Mais Indicadores</a>
+        </section>
+    </main>
+    
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-column">
+                    <h3>Sobre o Programa</h3>
+                    <ul>
+                        <li><a href="https://wa.me/5511999999999">Histórico</a></li>
+                        <li><a href="https://wa.me/5511999999999">Resultados</a></li>
+                        <li><a href="https://wa.me/5511999999999">Legislação</a></li>
+                        <li><a href="https://wa.me/5511999999999">Parcerias</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Serviços</h3>
+                    <ul>
+                        <li><a href="https://wa.me/5511999999999">Calendário de Exames</a></li>
+                        <li><a href="https://wa.me/5511999999999">Consulta de Processos</a></li>
+                        <li><a href="https://wa.me/5511999999999">Emissão de Boletos</a></li>
+                        <li><a href="https://wa.me/5511999999999">Validação de Documentos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Órgãos Relacionados</h3>
+                    <ul>
+                        <li><a href="https://wa.me/5511999999999">Ministério da Infraestrutura</a></li>
+                        <li><a href="https://wa.me/5511999999999">DENATRAN</a></li>
+                        <li><a href="https://wa.me/5511999999999">DETRAN</a></li>
+                        <li><a href="https://wa.me/5511999999999">Polícia Rodoviária Federal</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Fale Conosco</h3>
+                    <ul>
+                        <li><a href="https://wa.me/5511999999999">Ouvidoria</a></li>
+                        <li><a href="https://wa.me/5511999999999">Denúncias</a></li>
+                        <li><a href="https://wa.me/5511999999999">Sugestões</a></li>
+                        <li><a href="https://wa.me/5511999999999">Perguntas Frequentes</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-middle">
+                <div class="social-links">
+                    <a href="https://wa.me/5511999999999"><span>Instagram</span></a>
+                    <a href="https://wa.me/5511999999999"><span>Facebook</span></a>
+                    <a href="https://wa.me/5511999999999"><span>YouTube</span></a>
+                    <a href="https://wa.me/5511999999999"><span>Twitter</span></a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Governo do Brasil - Todos os direitos reservados</p>
+                <p>As informações divulgadas são de caráter oficial e responsabilidade do Governo Federal</p>
+                <div class="creative-commons">
+                    <p>Todo o conteúdo deste site está publicado sob a licença Creative Commons Atribuição-SemDerivações 3.0 Não Adaptada</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript para o menu responsivo -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const mainMenu = document.getElementById('mainMenu');
+            
+            menuToggle.addEventListener('click', function() {
+                mainMenu.classList.toggle('show');
+            });
+
+            // Fechar menu ao clicar em um link
+            const menuLinks = mainMenu.querySelectorAll('a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mainMenu.classList.remove('show');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
